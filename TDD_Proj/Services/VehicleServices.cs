@@ -88,12 +88,23 @@ namespace TDD_Proj.Services
 
 
         // Compute average Year (0 if empty)
-        public static int CalculateAverageYear(List<Vehicle> vehicles)
+        public static int CalculateAverageYear(BindingList<Vehicle> vehicles)
         {
             if (vehicles.Count == 0) return 0;
             long sum = 0;
             foreach (var v in vehicles) sum += v.Year;
             return (int)(sum / vehicles.Count);
+        }
+
+        public static int CountVehiclesNeedMaintenance(BindingList<Vehicle> vehicles)
+        {
+            int count = 0;
+            foreach (var v in vehicles)
+            {
+                if (v.Status == MaintenanceStatus.RequiresMaintenance)
+                    count++;
+            }
+            return count;
         }
     }
 }

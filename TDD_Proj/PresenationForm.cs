@@ -25,12 +25,18 @@ namespace TDD_Proj
 
         private void AnaliticsButton_Click(object sender, EventArgs e)
         {
-
+            int avgYear = VehicleServices.CalculateAverageYear(_vehicles);
+            int timeToSort = VehicleServices.TimeToSort;
+            int vehiclesNeedMaintence = VehicleServices.CountVehiclesNeedMaintenance(_vehicles);
+            MessageBox.Show($"Average year: {avgYear}\n" +
+                            $"Time to sort : {timeToSort} ms\n " +
+                            $"Vehicles need Maintence : {vehiclesNeedMaintence}");
+                            
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }
