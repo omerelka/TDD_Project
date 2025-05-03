@@ -1,4 +1,4 @@
-﻿namespace TDD_Proj
+namespace TDD_Proj
 {
     partial class PresenationForm
     {
@@ -42,6 +42,15 @@
             vehicleGrid.RowHeadersWidth = 82;
             vehicleGrid.Size = new Size(1613, 906);
             vehicleGrid.TabIndex = 0;
+            vehicleGrid.BackgroundColor = Color.WhiteSmoke;
+            vehicleGrid.GridColor = Color.Gainsboro;
+            vehicleGrid.DefaultCellStyle.BackColor = Color.White;
+            vehicleGrid.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            vehicleGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 11, FontStyle.Bold);
+            vehicleGrid.EnableHeadersVisualStyles = false;
+            vehicleGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
+            vehicleGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            vehicleGrid.RowTemplate.Height = 35;
             // 
             // AnaliticsButton
             // 
@@ -50,8 +59,11 @@
             AnaliticsButton.Size = new Size(165, 54);
             AnaliticsButton.TabIndex = 2;
             AnaliticsButton.Text = "Analytics";
-            AnaliticsButton.UseVisualStyleBackColor = true;
-            AnaliticsButton.Click += AnalyticsButton_Click;
+            AnaliticsButton.BackColor = Color.FromArgb(52, 152, 219); 
+            AnaliticsButton.ForeColor = Color.White;
+            AnaliticsButton.FlatStyle = FlatStyle.Flat;
+            AnaliticsButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            AnaliticsButton.Click += AnaliticsButton_Click;
             // 
             // DoneButton
             // 
@@ -60,19 +72,24 @@
             DoneButton.Size = new Size(165, 54);
             DoneButton.TabIndex = 3;
             DoneButton.Text = "Done";
-            DoneButton.UseVisualStyleBackColor = true;
+            DoneButton.BackColor = Color.FromArgb(46, 204, 113); 
+            DoneButton.ForeColor = Color.White;
+            DoneButton.FlatStyle = FlatStyle.Flat;
+            DoneButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             DoneButton.Click += DoneButton_Click;
             // 
-            // AutoForm
+            // PresenationForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1692, 1164);
+            BackColor = Color.White;
             Controls.Add(DoneButton);
             Controls.Add(AnaliticsButton);
             Controls.Add(vehicleGrid);
-            Name = "AutoForm";
-            Text = "AutoForm";
+            Font = new Font("Segoe UI", 10F);
+            Name = "PresenationForm";
+            Text = "Vehicle Presentation";
             ((System.ComponentModel.ISupportInitialize)vehicleGrid).EndInit();
             ResumeLayout(false);
         }
