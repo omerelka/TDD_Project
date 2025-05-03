@@ -51,7 +51,7 @@
             AnaliticsButton.TabIndex = 2;
             AnaliticsButton.Text = "Analytics";
             AnaliticsButton.UseVisualStyleBackColor = true;
-            AnaliticsButton.Click += AnaliticsButton_Click;
+            AnaliticsButton.Click += AnalyticsButton_Click;
             // 
             // DoneButton
             // 

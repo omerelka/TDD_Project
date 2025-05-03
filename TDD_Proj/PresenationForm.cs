@@ -23,15 +23,25 @@ namespace TDD_Proj
             vehicleGrid.DataSource = _vehicles;
         }
 
-        private void AnaliticsButton_Click(object sender, EventArgs e)
+        private void AnalyticsButton_Click(object sender, EventArgs e)
         {
-            int avgYear = VehicleServices.CalculateAverageYear(_vehicles);
-            int timeToSort = VehicleServices.TimeToSort;
-            int vehiclesNeedMaintence = VehicleServices.CountVehiclesNeedMaintenance(_vehicles);
-            MessageBox.Show($"Average year: {avgYear}\n" +
-                            $"Time to sort : {timeToSort} ms\n " +
-                            $"Vehicles need Maintence : {vehiclesNeedMaintence}");
-                            
+            var report = AnalyticsService.BuildReport(_vehicles);
+            MessageBox.Show(report, "Fleet Analytics",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static class AnalyticsService
+        {
+            public static string BuildReport(BindingList<Vehicle> vehicles)
+            {
+                int avgYear = VehicleServices.CalculateAverageYear(vehicles);
+                int sortMs = VehicleServices.TimeToSort;
+                int needsMaint = VehicleServices.CountVehiclesNeedMaintenance(vehicles);
+                return
+                  $"Average year: {avgYear}\n" +
+                  $"Sort time: {sortMs} ms\n" +
+                  $"Needs maintenance: {needsMaint}";
+            }
         }
 
         private void DoneButton_Click(object sender, EventArgs e)

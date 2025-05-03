@@ -7,12 +7,15 @@ namespace TDD_PROJ
 {
     public partial class ManualForm : Form
     {
-        public ManualForm()
+        private BindingList<Vehicle> vehicles;
+        public ManualForm(BindingList<Vehicle> _vehicles)
         {
             InitializeComponent();
+            vehicles = _vehicles;
         }
+        public ManualForm() : this(new BindingList<Vehicle>()) { }
+        
 
-        private BindingList<Vehicle> vehicles = new();
         private int nextVehicleId = 1;
 
 
@@ -28,7 +31,10 @@ namespace TDD_PROJ
             VehicleType type = Enum.Parse<VehicleType>(typeStr);
             MaintenanceStatus status = Enum.Parse<MaintenanceStatus>(statusStr);
 
-            Vehicle vehicle = new Vehicle(nextVehicleId, model, manufacturer, year, type, status);
+            //Vehicle vehicle = new Vehicle(nextVehicleId, model, manufacturer, year, type, status);
+            Vehicle vehicle = VehicleFactory.Create(nextVehicleId, model, manufacturer, year, typeStr, statusStr);
+            vehicles.Add(vehicle);
+
             nextVehicleId++;
 
             MessageBox.Show(vehicle.ToString(), "Vehicle Created");
@@ -70,6 +76,33 @@ namespace TDD_PROJ
             comboBoxType.SelectedIndex = 0;
             comboBoxMaintenance.SelectedIndex = 0;
             numericUpDownYear.Value = 2025;
+        }
+
+        public static class VehicleFactory
+        {
+            public static Vehicle Create(int id, string model, string manufacturer,
+                int year, string typeText, string statusText)
+            {
+                // Validate model/manufacturer
+                if (string.IsNullOrWhiteSpace(model))
+                    throw new ArgumentException("Model is required.");
+                if (string.IsNullOrWhiteSpace(manufacturer))
+                    throw new ArgumentException("Manufacturer is required.");
+
+                // Validate year range
+                if (year < 2000 || year > 2025)
+                    throw new ArgumentOutOfRangeException(nameof(year), "Year must be between 2000 and 2025.");
+
+                // Parse type
+                if (!Enum.TryParse<VehicleType>(typeText, out var type))
+                    throw new ArgumentException($"Invalid vehicle type: '{typeText}'");
+
+                // Parse status
+                if (!Enum.TryParse<MaintenanceStatus>(statusText, ignoreCase: true, out var status))
+                    throw new ArgumentException($"Invalid maintenance status: '{statusText}'");
+
+                return new Vehicle(id, model, manufacturer, year, type, status);
+            }
         }
     }
 }

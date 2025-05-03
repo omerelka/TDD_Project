@@ -17,7 +17,7 @@ namespace TDD_Proj
 
         private void manualButton_Click(object sender, EventArgs e)
         {
-            ManualForm manualForm = new ManualForm();
+            ManualForm manualForm = new ManualForm(_vehicles);
             manualForm.Show();
             this.Hide();
         }
