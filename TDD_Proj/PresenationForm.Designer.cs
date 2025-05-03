@@ -59,7 +59,7 @@ namespace TDD_Proj
             AnaliticsButton.Size = new Size(165, 54);
             AnaliticsButton.TabIndex = 2;
             AnaliticsButton.Text = "Analytics";
-            AnaliticsButton.BackColor = Color.FromArgb(52, 152, 219); // כחול מודרני
+            AnaliticsButton.BackColor = Color.FromArgb(52, 152, 219); 
             AnaliticsButton.ForeColor = Color.White;
             AnaliticsButton.FlatStyle = FlatStyle.Flat;
             AnaliticsButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -72,7 +72,7 @@ namespace TDD_Proj
             DoneButton.Size = new Size(165, 54);
             DoneButton.TabIndex = 3;
             DoneButton.Text = "Done";
-            DoneButton.BackColor = Color.FromArgb(46, 204, 113); // ירוק מודרני
+            DoneButton.BackColor = Color.FromArgb(46, 204, 113); 
             DoneButton.ForeColor = Color.White;
             DoneButton.FlatStyle = FlatStyle.Flat;
             DoneButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
