@@ -28,6 +28,8 @@ namespace TDD_Proj
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             vehicleGrid = new DataGridView();
             AnaliticsButton = new Button();
             DoneButton = new Button();
@@ -36,54 +38,71 @@ namespace TDD_Proj
             // 
             // vehicleGrid
             // 
+            vehicleGrid.BackgroundColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Transparent;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            vehicleGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             vehicleGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            vehicleGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            vehicleGrid.EnableHeadersVisualStyles = false;
+            vehicleGrid.GridColor = Color.Gainsboro;
             vehicleGrid.Location = new Point(35, 110);
             vehicleGrid.Name = "vehicleGrid";
             vehicleGrid.RowHeadersWidth = 82;
+            vehicleGrid.RowTemplate.Height = 35;
             vehicleGrid.Size = new Size(1613, 906);
             vehicleGrid.TabIndex = 0;
-            vehicleGrid.BackgroundColor = Color.WhiteSmoke;
-            vehicleGrid.GridColor = Color.Gainsboro;
-            vehicleGrid.DefaultCellStyle.BackColor = Color.White;
-            vehicleGrid.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            vehicleGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 11, FontStyle.Bold);
-            vehicleGrid.EnableHeadersVisualStyles = false;
-            vehicleGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
-            vehicleGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-            vehicleGrid.RowTemplate.Height = 35;
             // 
             // AnaliticsButton
             // 
+            AnaliticsButton.BackColor = Color.FromArgb(52, 152, 219);
+            AnaliticsButton.Cursor = Cursors.Hand;
+            AnaliticsButton.FlatStyle = FlatStyle.Flat;
+            AnaliticsButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            AnaliticsButton.ForeColor = Color.White;
             AnaliticsButton.Location = new Point(35, 1068);
             AnaliticsButton.Name = "AnaliticsButton";
             AnaliticsButton.Size = new Size(165, 54);
             AnaliticsButton.TabIndex = 2;
             AnaliticsButton.Text = "Analytics";
-            AnaliticsButton.BackColor = Color.FromArgb(52, 152, 219); 
-            AnaliticsButton.ForeColor = Color.White;
-            AnaliticsButton.FlatStyle = FlatStyle.Flat;
-            AnaliticsButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            AnaliticsButton.Click += AnaliticsButton_Click;
+            AnaliticsButton.UseVisualStyleBackColor = false;
+            AnaliticsButton.Click += AnalyticsButton_Click;
             // 
             // DoneButton
             // 
+            DoneButton.BackColor = Color.FromArgb(46, 204, 113);
+            DoneButton.Cursor = Cursors.Hand;
+            DoneButton.FlatStyle = FlatStyle.Flat;
+            DoneButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            DoneButton.ForeColor = Color.White;
             DoneButton.Location = new Point(1483, 1068);
             DoneButton.Name = "DoneButton";
             DoneButton.Size = new Size(165, 54);
             DoneButton.TabIndex = 3;
             DoneButton.Text = "Done";
-            DoneButton.BackColor = Color.FromArgb(46, 204, 113); 
-            DoneButton.ForeColor = Color.White;
-            DoneButton.FlatStyle = FlatStyle.Flat;
-            DoneButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            DoneButton.UseVisualStyleBackColor = false;
             DoneButton.Click += DoneButton_Click;
             // 
             // PresenationForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1692, 1164);
             BackColor = Color.White;
+            BackgroundImage = Properties.Resources.Blue_Background;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1692, 1164);
             Controls.Add(DoneButton);
             Controls.Add(AnaliticsButton);
             Controls.Add(vehicleGrid);

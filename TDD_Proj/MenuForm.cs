@@ -29,13 +29,17 @@ namespace TDD_Proj
             foreach (var v in randoms)
                 _vehicles.Add(v);
             MessageBox.Show($"{count} random vehicles generated.");
-            _vehicles = VehicleServices.SortByYearDescending( _vehicles );
+            _vehicles = VehicleServices.SortByYearDescending(_vehicles);
             PresenationForm presentationform = new PresenationForm(_vehicles);
             presentationform.Show();
             this.Hide();
-            
+
         }
 
+        private void ManualToolTip_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
-    
+
 }

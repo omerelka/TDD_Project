@@ -21,6 +21,15 @@ namespace TDD_Proj
             _vehicles = vehicles;
             vehicleGrid.AutoGenerateColumns = true;
             vehicleGrid.DataSource = _vehicles;
+            vehicleGrid.BorderStyle = BorderStyle.None;
+            vehicleGrid.BackgroundColor = Color.White; // Can't be truly transparent
+            vehicleGrid.DefaultCellStyle.BackColor = Color.FromArgb(180, Color.White); // Semi-transparent cell bg
+            vehicleGrid.DefaultCellStyle.SelectionBackColor = Color.LightSkyBlue;
+            vehicleGrid.DefaultCellStyle.ForeColor = Color.Black;
+
+            vehicleGrid.EnableHeadersVisualStyles = false;
+            vehicleGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(200, Color.White);
+            vehicleGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
         }
 
         private void AnalyticsButton_Click(object sender, EventArgs e)
